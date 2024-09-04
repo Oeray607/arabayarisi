@@ -1,0 +1,166 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YARIS</title>
+</head>
+<script>
+let araba = 0;
+let araba1 = 0;
+let araba2 = 0;
+
+function rast() {
+    return Math.floor(Math.random() * 10);
+}
+
+function git() {
+    araba += rast();
+    araba1 += rast();
+    araba2 += rast();
+    if (araba>window.innerWidth) {
+        araba=0;
+    }
+    document.getElementById('araba').style.left = araba + "px";
+    document.getElementById('araba1').style.left = araba1 + "px";
+    document.getElementById('araba2').style.left = araba2 + "px";
+}
+
+function start() {
+    setInterval(git, 10);
+
+}
+</script>
+<style>
+    #konteynir {
+        width: 100%;
+        height: 800px;
+        background-color: orange;
+        border-right: 50px dashed black;
+        box-sizing: border-box;
+        }
+    #baslangic {
+    position: absolute;
+    top: 0;
+    left: 200px; 
+    width: 10px; 
+    height: 800px; 
+    background-color: black; 
+    z-index: 10; 
+    }
+    
+    #kulvar {
+        padding-top: 0px;
+        height: 250px;
+        width: 100%;
+        margin-bottom: 5px;
+        background-color: grey;
+        position: relative;
+        overflow: hidden;
+    }
+    #kulvar::before {
+        
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: repeating-linear-gradient(
+        to right,
+        white 0%,
+        white 5px,
+        transparent 100px,
+        transparent 100px
+    );
+    transform: translateY(-50%);
+}
+    
+    #kulvar2 {
+        padding: 0px;
+        height: 250px;
+        width: 100%;
+        margin-bottom: 5px;
+        background-color: grey;
+        position: relative;
+        overflow: hidden;
+        
+    }
+    #kulvar2::before {
+        content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: repeating-linear-gradient(
+        to right,
+        white 0%,
+        white 5px,
+        transparent 100px,
+        transparent 100px
+    );
+    transform: translateY(-50%);
+    }
+    #kulvar3 {
+        padding: 0px;
+        height: 270px;
+        width: 100%;
+       background-color: grey;
+        position: relative;
+        overflow: hidden;
+    }
+    #kulvar3::before {
+        content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: repeating-linear-gradient(
+        to right,
+        white 0%,
+        white 5px,
+        transparent 100px,
+        transparent 100px
+    );
+    transform: translateY(-100%);
+    }
+
+   #araba {
+        position: relative;
+        top: 30%;
+        left: 10px;
+    }
+    #araba1 {
+        position: relative;
+        top: 30%;
+        left: 10px;
+    }
+    #araba2 {
+        position: relative;
+        top: 30%;
+        left: 10px;
+    }
+    #buton {
+        background-color: orange;
+        text-align: center;
+        
+    }
+</style>
+<body>
+    <div id="konteynir">
+        <div id="buton"><button id="dugme" onclick="start()">BASLAT</button></div>
+        <div id="baslangic"></div>
+        <div id="kulvar">
+            <img id="araba" src="taksi.gif" width="150" height="150" alt="araba">
+        </div>
+        <div id="kulvar2">
+            <img id="araba1" src="maviaraba.gif" width="150" height="100" alt="araba1">
+        </div>
+        <div id="kulvar3">
+            <img id="araba2" src="gidenaraba.gif" width="150" height="100" alt="abara2">
+        </div>
+    </div>
+    
+</body>
+</html>
